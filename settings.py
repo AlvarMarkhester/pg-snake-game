@@ -1,0 +1,21 @@
+#define colors
+WHITE = (255, 255, 255)
+BLACK =(0, 0, 0)
+RED = (255, 0, 0)
+GREEN = (0, 255, 0)
+BLUE = (0, 0, 255)
+DARKGREY = (40, 40, 40)
+LIGHTGREY = (100, 100, 100)
+YELLOW = (255, 255, 0)
+
+#game settings/options
+TITLE = "Tile Based Game"
+WIDTH = 800
+HEIGHT = 800
+FPS = 60
+BGCOLOR = DARKGREY
+
+TILESIZE = 32
+GRIDWIDTH = WIDTH / TILESIZE
+GRIDHEIGHT = HEIGHT / TILESIZE
+
