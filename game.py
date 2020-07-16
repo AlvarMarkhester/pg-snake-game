@@ -8,10 +8,11 @@ class Game:
 	def __init__(self):
 		#init game windows etc
 		pg.init()
+		pg.font.init()
+		self.myfont = pg.font.SysFont('Calibri', 50)
 		self.screen = pg.display.set_mode((WIDTH, HEIGHT))
 		pg.display.set_caption(TITLE)
 		self.clock = pg.time.Clock()
-		pg.key.set_repeat(500, 100)
 
 
 	def new(self):
@@ -29,6 +30,7 @@ class Game:
 			self.events()
 			self.update()
 			self.draw()
+			self.player.move()
 
 	def quit(self):
 		pg.quit()
@@ -48,13 +50,13 @@ class Game:
 				if event.key == pg.K_ESCAPE:
 					self.quit()
 				if event.key == pg.K_LEFT:
-					self.player.move(dx=-1)
+					self.player.goLeft()
 				if event.key == pg.K_UP:
-					self.player.move(dy=-1)
+					self.player.goUp()
 				if event.key == pg.K_RIGHT:
-					self.player.move(dx=1)
+					self.player.goRight()
 				if event.key == pg.K_DOWN:
-					self.player.move(dy=1)
+					self.player.goDown()
 				
 
 	def draw_grid(self):
@@ -63,11 +65,17 @@ class Game:
 		for y in range(0, HEIGHT, TILESIZE):
 			pg.draw.line(self.screen, LIGHTGREY, (0, y), (WIDTH, y))
 
+	def draw_game_score(self):
+		self.gamescore = self.myfont.render(f"Gamescore: {self.player.gamescore}" , False, YELLOW)
+		self.screen.blit(self.gamescore,(50,25))
+
 	def draw(self):
 		# game loop draw
 		self.screen.fill(BGCOLOR)
 		self.draw_grid()
 		self.all_sprites.draw(self.screen)
+		self.player.drawSnakeLength()
+		self.draw_game_score()
 		# flipping display after drawing
 		pg.display.flip()
 
