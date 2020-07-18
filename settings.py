@@ -10,7 +10,7 @@ LIGHTGREY = (100, 100, 100)
 YELLOW = (255, 255, 0)
 
 #game settings/options
-TITLE = "Tile Based Game"
+TITLE = "Snake Game"
 WIDTH = 800
 HEIGHT = 800
 FPS = 10
