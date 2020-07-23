@@ -49,13 +49,13 @@ class Game:
 			if event.type == pg.KEYDOWN:
 				if event.key == pg.K_ESCAPE:
 					self.quit()
-				if event.key == pg.K_LEFT:
+				if event.key == pg.K_LEFT or event.key == pg.K_a:
 					self.player.goLeft()
-				if event.key == pg.K_UP:
+				if event.key == pg.K_UP or event.key == pg.K_w:
 					self.player.goUp()
-				if event.key == pg.K_RIGHT:
+				if event.key == pg.K_RIGHT or event.key == pg.K_d:
 					self.player.goRight()
-				if event.key == pg.K_DOWN:
+				if event.key == pg.K_DOWN or event.key == pg.K_s:
 					self.player.goDown()
 				
 
